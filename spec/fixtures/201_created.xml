@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom"
+  xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+  <id>http://host/base/odata/standard.odata/Catalog_Товары(guid'41aa6331-954f-11e3-814b-005056c00008')</id>
+  <category term="StandardODATA.Catalog_Товары" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme"/>
+  <title type="text"/>
+  <updated>2014-02-14T12:18:36</updated>
+  <author/>
+  <summary/>
+  <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/ФайлКартинки"
+      href="Catalog_Товары(guid'41aa6331-954f-11e3-814b-005056c00008')/ФайлКартинки"
+      type="application/atom+xml;type=entry;charset=utf-8"
+      title="ФайлКартинки"/>
+  <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Parent"
+      href="Catalog_Товары(guid'41aa6331-954f-11e3-814b-005056c00008')/Parent"
+      type="application/atom+xml;type=entry;charset=utf-8"
+      title="Parent"/>
+  <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Поставщик"
+      href="Catalog_Товары(guid'41aa6331-954f-11e3-814b-005056c00008')/Поставщик"
+      type="application/atom+xml;type=entry;charset=utf-8"
+      title="Поставщик"/>
+  <link rel="edit"
+      href="Catalog_Товары(guid'41aa6331-954f-11e3-814b-005056c00008')"
+      title="edit-link"/>
+  <content type="application/xml">
+    <m:properties xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+      <d:Ref_Key>41aa6331-954f-11e3-814b-005056c00008</d:Ref_Key>
+      <d:DataVersion m:null="true"/>
+      <d:Description>Шлепанцы</d:Description>
+      <d:Code>000000800</d:Code>
+      <d:Parent_Key>bbb079ae-8c51-11db-a9b0-00055d49b45e</d:Parent_Key>
+      <d:IsFolder>false</d:IsFolder>
+      <d:DeletionMark>false</d:DeletionMark>
+ <d:Артикул>SL56X</d:Артикул>
+      <d:Поставщик_Key>086715b0-f348-11db-a9c5-00055d49b45e</d:Поставщик_Key>
+ <d:ФайлКартинки_Key>00000000-0000-0000-0000-000000000000</d:ФайлКартинки_Key>
+      <d:Вид>Товар</d:Вид>
+      <d:Штрихкод/>
+      <d:Описание>&lt;html&gt;Шлепанцы пляжные&lt;/html&gt;</d:Описание>
+      <d:ФайлКартинки_Key>00000000-0000-0000-0000-000000000000</d:ФайлКартинки_Key>
+      <d:Parent_Key>bbb079ae-8c51-11db-a9b0-00055d49b45e</d:Parent_Key>
+      <d:Поставщик_Key>086715b0-f348-11db-a9c5-00055d49b45e</d:Поставщик_Key>
+ </m:properties>
+  </content>
+</entry>
