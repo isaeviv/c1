@@ -29,26 +29,14 @@ module C1
         if @Ref_Key
           # TODO
         else
-          create
+          create_new_entry
         end
       end
 
-    private
-      def create
-        response = RestClient::Request.execute(method: :post, 
-          url: URI.encode("#{C1.configuration.odata_url}/standard.odata/#{self.class.resource_id}"), 
-          payload: to_xml, user: C1.configuration.user, password: C1.configuration.password)
-
-        xml = Nokogiri::XML(response)
-        xml.remove_namespaces!
-
-        assign_attributes Hash[self.class.properties.map{ |p| [p, xml.xpath("//content/properties/#{p}").inner_text] }]
-
-        true
-      end
-
-      def assign_attributes(attrs)
-        attrs.each{ |k, v| self.send("#{k}=", v) }
+      def call method
+        RestClient::Request.execute(method: :post, 
+          url: URI.encode("#{C1.configuration.odata_url}/#{self.class.resource_id}(guid'#{@Ref_Key}')/#{method}"), 
+          payload: nil, user: C1.configuration.user, password: C1.configuration.password)
       end
 
       def to_xml
@@ -73,6 +61,25 @@ module C1
 
         builder.doc.root.to_xml
       end
+
+    private
+      def create_new_entry
+        response = RestClient::Request.execute(method: :post, 
+          url: URI.encode("#{C1.configuration.odata_url}/#{self.class.resource_id}"), 
+          payload: to_xml, user: C1.configuration.user, password: C1.configuration.password)
+
+        xml = Nokogiri::XML(response)
+        xml.remove_namespaces!
+
+        assign_attributes Hash[self.class.properties.map{ |p| [p, xml.xpath("//content/properties/#{p}").inner_text] }]
+
+        true
+      end
+
+      def assign_attributes(attrs)
+        attrs.each{ |k, v| self.send("#{k}=", v) }
+      end
+
     end
   end
 end
