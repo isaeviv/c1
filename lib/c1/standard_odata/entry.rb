@@ -71,7 +71,7 @@ module C1
         xml = Nokogiri::XML(response)
         xml.remove_namespaces!
 
-        assign_attributes Hash[self.class.properties.map{ |p| [p, xml.xpath("//content/properties/#{p}").inner_text] }]
+        assign_attributes Hash[self.class.properties.keep_if{|i| i != :Ref_Key}.map{ |p| [p, xml.xpath("//content/properties/#{p}").inner_text] }]
 
         true
       end
