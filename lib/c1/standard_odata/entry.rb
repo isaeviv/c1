@@ -52,6 +52,7 @@ module C1
             xml.content(type: 'application/xml') do
               xml[:m].properties(:'xmlns:d' => "http://schemas.microsoft.com/ado/2007/08/dataservices", :'xmlns:m' => "http://schemas.microsoft.com/ado/2007/08/dataservices/metadata") do
                 self.class.properties.each do |name|
+                  next if name.to_sym == :Ref_Key
                   xml[:d].send(name, self.instance_variable_get("@#{name}"))
                 end
               end
@@ -71,7 +72,7 @@ module C1
         xml = Nokogiri::XML(response)
         xml.remove_namespaces!
 
-        assign_attributes Hash[self.class.properties.keep_if{|i| i != :Ref_Key}.map{ |p| [p, xml.xpath("//content/properties/#{p}").inner_text] }]
+        assign_attributes Hash[self.class.properties.map{ |p| [p, xml.xpath("//content/properties/#{p}").inner_text] }]
 
         true
       end
