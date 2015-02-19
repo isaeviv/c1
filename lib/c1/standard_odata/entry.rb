@@ -26,7 +26,7 @@ module C1
         xml = Nokogiri::XML(response)
         xml.remove_namespaces!
 
-        assign_attributes Hash[self.properties.map{ |p| [p, xml.xpath("//content/properties/#{p}").inner_text] }]
+        new Hash[self.properties.map{ |p| [p, xml.xpath("//content/properties/#{p}").inner_text] }]
 
         true
       end
