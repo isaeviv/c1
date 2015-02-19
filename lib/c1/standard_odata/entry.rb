@@ -18,12 +18,26 @@ module C1
         [:Ref_Key] + self.const_get(:PROPS)
       end
 
+      def self.find guid
+        response = RestClient::Request.execute(method: :get, 
+          url: URI.encode("#{C1.configuration.odata_url}/#{self.class.resource_id}(guid'#{guid}')"), 
+          payload: nil, user: C1.configuration.user, password: C1.configuration.password)
+
+        xml = Nokogiri::XML(response)
+        xml.remove_namespaces!
+
+        assign_attributes Hash[self.class.properties.map{ |p| [p, xml.xpath("//content/properties/#{p}").inner_text] }]
+
+        true
+      end
+
       def initialize(attrs = {})
         self.class.class_eval{ attr_accessor *properties }
         assign_attributes(attrs) if attrs
 
         super()
       end
+
 
       def save
         if @Ref_Key
