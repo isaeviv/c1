@@ -20,7 +20,7 @@ module C1
 
       def self.find guid
         response = RestClient::Request.execute(method: :get, 
-          url: URI.encode("#{C1.configuration.odata_url}/#{self.class.resource_id}(guid'#{guid}')"), 
+          url: URI.encode("#{C1.configuration.odata_url}/#{self.resource_id}(guid'#{guid}')"), 
           payload: nil, user: C1.configuration.user, password: C1.configuration.password)
 
         xml = Nokogiri::XML(response)
