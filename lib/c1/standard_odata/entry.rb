@@ -27,8 +27,6 @@ module C1
         xml.remove_namespaces!
 
         new Hash[self.properties.map{ |p| [p, xml.xpath("//content/properties/#{p}").inner_text] }]
-
-        true
       end
 
       def initialize(attrs = {})
