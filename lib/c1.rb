@@ -14,9 +14,9 @@ module C1
     yield(configuration)
   end
 
-  class Configuration
-    attr_accessor :odata_url, :user, :password
-  end
+  # class Configuration
+  attr_accessor :odata_url, :user, :password
+  # end
 end
 
 # class WebAnketa < C1::StandardODATA::Entry
