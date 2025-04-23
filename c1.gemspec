@@ -22,6 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
   
-  spec.add_dependency "nokogiri", '~> 1.6.5'
+  spec.add_dependency "nokogiri", '1.15.7'
   spec.add_dependency "rest-client"
 end
